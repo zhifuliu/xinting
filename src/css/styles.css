@@ -101,13 +101,20 @@ select::-webkit-select-placeholder {
     #app .calculator p.result {
       min-height: 4rem;
       border: 1px solid #c2c2c2;
-      width: 17.2rem;
-      margin: 0.5rem 1.4rem; }
+      margin: 0.5rem 1rem;
+      font-size: 2rem;
+      width: 17.8rem;
+      display: block;
+      word-wrap: break-word;
+      word-break: normal; }
+      #app .calculator p.result span {
+        display: block;
+        text-align: right; }
     #app .calculator .line {
       margin-bottom: 0.5rem; }
       #app .calculator .line span {
         background-color: #C9C9C9;
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 0;
         display: inline-block;
         width: 4rem;
         text-align: center;

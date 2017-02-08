@@ -27,37 +27,40 @@
         <!--计算器 -->
         <div class="calculator">
             <!--计算结果 -->
-            <p class="result"></p>
+            <p class="result">
+                <span class="calculator_expression">{{calculatorObj.operationSentence}}</span>
+                <span class="calculator_result">{{calculatorObj.result}}</span>
+            </p>
             <!--键盘布局 -->
             <div class="line">
-                <span>(</span>
-                <span>)</span>
-                <span>%</span>
-                <span>AC</span>
+                <span @click="operation('(', 'sumbol')">(</span>
+                <span @click="operation(')', 'sumbol')">)</span>
+                <span @click="operation('%', 'operation')">%</span>
+                <span @click="operation('AC', 'operation')">AC</span>
             </div>
             <div class="line">
-                <span>7</span>
-                <span>8</span>
-                <span>9</span>
-                <span>÷</span>
+                <span @click="operation(7, 'number')">7</span>
+                <span @click="operation(8, 'number')">8</span>
+                <span @click="operation(9, 'number')">9</span>
+                <span @click="operation('÷', 'operation')">÷</span>
             </div>
             <div class="line">
-                <span>4</span>
-                <span>5</span>
-                <span>6</span>
-                <span>×</span>
+                <span @click="operation(4, 'number')">4</span>
+                <span @click="operation(5, 'number')">5</span>
+                <span @click="operation(6, 'number')">6</span>
+                <span @click="operation('×', 'operation')">×</span>
             </div>
             <div class="line">
-                <span>1</span>
-                <span>2</span>
-                <span>3</span>
-                <span>-</span>
+                <span @click="operation(1, 'number')">1</span>
+                <span @click="operation(2, 'number')">2</span>
+                <span @click="operation(3, 'number')">3</span>
+                <span @click="operation('-', 'operation')">-</span>
             </div>
             <div class="line">
-                <span>0</span>
-                <span>.</span>
-                <span>=</span>
-                <span>+</span>
+                <span @click="operation(0, 'number')">0</span>
+                <span @click="operation('.', 'number')">.</span>
+                <span @click="operation('(=', 'result')">=</span>
+                <span @click="operation('+', 'operation')">+</span>
             </div>
         </div>
     </section>
@@ -73,10 +76,32 @@
             var vm = new Vue({
                 el: '#app',
                 data: {
-                    jiu: [1, 2, 3, 4, 5, 6, 7, 9]
+                    jiu: [1, 2, 3, 4, 5, 6, 7, 9],
+                    calculatorObj: {
+                        operationSentence: '',
+                        result: 0
+                    }
                 },
                 methods: {
+                    operation(value, symbol) {
+                        if (value == 'AC') {
+                            this.calculatorObj.operationSentence = '';
+                        } else if (value == '=') {
 
+                        } else {
+                            if (this.canInput(this.calculatorObj.operationSentence, value)){
+                                this.calculatorObj.operationSentence += value;
+                                console.log(this.calculatorObj.operationSentence);
+                            } else {
+                                alert('error');
+                            }
+                        }
+                    },
+                    canInput(symbol, sentence) {
+                        console.log(symbol);
+                        console.log(sentence);
+                        return true;
+                    }
                 },
                 ready: function() {
 

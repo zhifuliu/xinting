@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <title>九九乘法表</title>
+    <link href="//res.winbaoxian.com/iconfont/1484105370458/css/symbols.css" rel="stylesheet">
+    <!-- build:css -->
+    <link rel="stylesheet" type="text/css" href="./bower_modules/animate.css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <!-- endbuild -->
+</head>
+
+<body>
+    <section v-if="success">
+
+    </section>
+    <section v-if="!success" v-bind:style="{display: !success ? 'block' : 'none'}" class="pageErrorMsg">{{errorMsg}}</section>
+
+    <!-- build:js -->
+    <script type="text/javascript" src="./bower_modules/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="./bower_modules/underscore/underscore.js"></script>
+    <script type="text/javascript" src="./bower_modules/vue/dist/vue.js"></script>
+    <!-- endbuild -->
+    <script type="text/javascript">
+        $(function() {
+            var vm = new Vue({
+                el: 'body',
+                data: {
+
+                },
+                methods: {
+
+                },
+                ready: function() {
+
+                },
+                created: function() {
+                    this.success = true;
+                },
+                watch: {
+
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

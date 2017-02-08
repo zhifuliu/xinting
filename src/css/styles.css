@@ -1,0 +1,118 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*:focus {
+  outline: none; }
+
+html {
+  -webkit-tap-highlight-color: transparent;
+  background-color: #fff;
+  width: 100%;
+  overflow-x: hidden;
+  min-height: 100%;
+  min-width: 480px; }
+
+body {
+  font-family: 'Microsoft YaHei', '黑体', 'Tahoma', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  width: 100%;
+  overflow-x: hidden;
+  background: #fff;
+  font-size: 1rem;
+  color: #333333;
+  min-height: 100%; }
+
+ul {
+  list-style: none; }
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+  display: block; }
+
+a {
+  display: block;
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: none; }
+
+a:focus {
+  outline: none; }
+
+em {
+  font-style: normal; }
+
+footer,
+header,
+section {
+  display: block; }
+
+section {
+  min-width: 480px;
+  margin: 0 auto;
+  width: 100%; }
+
+input,
+select {
+  display: inline-block;
+  background: transparent;
+  border: none;
+  vertical-align: middle;
+  color: #333;
+  width: 100%;
+  border: 1px solid #c2c2c2; }
+
+input::-webkit-input-placeholder,
+select::-webkit-select-placeholder {
+  color: #C2C2C2; }
+
+#app {
+  width: 100%;
+  padding: 10% 20%; }
+  #app .jiujiu .line {
+    margin-bottom: 0.5rem; }
+    #app .jiujiu .line span {
+      border: 1px solid #c2c2c2;
+      border-radius: 0.5rem;
+      margin-right: 0.5rem;
+      padding: 0.2rem 1rem;
+      display: inline-block; }
+    #app .jiujiu .line span:last-child {
+      margin-right: 0; }
+  #app .jiujiu .line:last-child {
+    margin-bottom: 0; }
+  #app .calculator {
+    text-align: center;
+    padding: 1rem 0;
+    border: 1px solid #c2c2c2;
+    border-radius: 1rem;
+    display: block;
+    width: 20rem; }
+    #app .calculator p.result {
+      min-height: 4rem;
+      border: 1px solid #c2c2c2;
+      width: 17.2rem;
+      margin: 0.5rem 1.4rem; }
+    #app .calculator .line {
+      margin-bottom: 0.5rem; }
+      #app .calculator .line span {
+        background-color: #C9C9C9;
+        padding: 0.5rem 1rem;
+        display: inline-block;
+        width: 4rem;
+        text-align: center;
+        margin-right: 0.4rem; }
+      #app .calculator .line span:last-child {
+        margin-right: 0; }
+    #app .calculator .line:last-child {
+      margin-bottom: 0; }

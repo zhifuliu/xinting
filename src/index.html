@@ -12,15 +12,55 @@
     <link href="//res.winbaoxian.com/iconfont/1484105370458/css/symbols.css" rel="stylesheet">
     <!-- build:css -->
     <link rel="stylesheet" type="text/css" href="./bower_modules/animate.css/animate.css" />
-    <link rel="stylesheet" type="text/css" href="./styles.css" />
+    <link rel="stylesheet" type="text/css" href="./css/styles.css" />
     <!-- endbuild -->
 </head>
 
 <body>
-    <section v-if="success">
-
+    <section id="app">
+        <!--九九乘法表 -->
+        <div class="jiujiu">
+            <div class="line" v-for="i in jiu">
+                <span v-for="j in jiu" v-if="j <= i">{{i}}×{{j}}={{i * j}}</span>
+            </div>
+        </div>
+        <!--计算器 -->
+        <div class="calculator">
+            <!--计算结果 -->
+            <p class="result"></p>
+            <!--键盘布局 -->
+            <div class="line">
+                <span>(</span>
+                <span>)</span>
+                <span>%</span>
+                <span>AC</span>
+            </div>
+            <div class="line">
+                <span>7</span>
+                <span>8</span>
+                <span>9</span>
+                <span>÷</span>
+            </div>
+            <div class="line">
+                <span>4</span>
+                <span>5</span>
+                <span>6</span>
+                <span>×</span>
+            </div>
+            <div class="line">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>-</span>
+            </div>
+            <div class="line">
+                <span>0</span>
+                <span>.</span>
+                <span>=</span>
+                <span>+</span>
+            </div>
+        </div>
     </section>
-    <section v-if="!success" v-bind:style="{display: !success ? 'block' : 'none'}" class="pageErrorMsg">{{errorMsg}}</section>
 
     <!-- build:js -->
     <script type="text/javascript" src="./bower_modules/jquery/dist/jquery.js"></script>
@@ -29,10 +69,11 @@
     <!-- endbuild -->
     <script type="text/javascript">
         $(function() {
+            $('html').css('fontSize', (document.body.offsetWidth * 6 / 750) + 'px');
             var vm = new Vue({
-                el: 'body',
+                el: '#app',
                 data: {
-
+                    jiu: [1, 2, 3, 4, 5, 6, 7, 9]
                 },
                 methods: {
 
@@ -41,7 +82,7 @@
 
                 },
                 created: function() {
-                    this.success = true;
+
                 },
                 watch: {
 

@@ -1,8 +1,21 @@
-.DS_Store
-node_modules/
-src/bower_modules
+# general
+*~
+*.log
+tmp
+dump
+**/.DS_Store
+.svn/
 .idea/
+.metadata/
+.project
+Thumbs.db
+*.iml
+#node
+**/node_modules/
+#bower
+**/bower_modules
 
 
-# Don't track build output
-dist/
+src/insurance-lib
+src/css/*.css
+dist

@@ -9,11 +9,7 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     webServer = require('gulp-webserver'),
     gutil = require('gulp-util'),
-    md5 = require('gulp-md5'),
-    rev = require('gulp-rev'),
     minifyCSS = require('gulp-minify-css'),
-    revCollector = require('gulp-rev-collector'),
-    jeditor = require('gulp-json-editor'),
     gulpsync = require('gulp-sync')(gulp),
     browserSync = require('browser-sync').create(),
     proxy = require('http-proxy-middleware'),
@@ -40,7 +36,7 @@ gulp.task('webserver', function() {
         server: {
             baseDir: './src/'
         },
-        index: './login.html',
+        index: './index.html',
         files: './src/**/*.*'
     });
 });

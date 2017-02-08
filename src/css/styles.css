@@ -98,6 +98,8 @@ select::-webkit-select-placeholder {
     border-radius: 1rem;
     display: block;
     width: 20rem; }
+    #app .calculator p.title {
+      font-size: 1.5rem; }
     #app .calculator p.result {
       min-height: 4rem;
       border: 1px solid #c2c2c2;
@@ -109,7 +111,8 @@ select::-webkit-select-placeholder {
       word-break: normal; }
       #app .calculator p.result span {
         display: block;
-        text-align: right; }
+        text-align: right;
+        width: 100%; }
     #app .calculator .line {
       margin-bottom: 0.5rem; }
       #app .calculator .line span {

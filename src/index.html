@@ -26,18 +26,20 @@
         </div>
         <!--计算器 -->
         <div class="calculator">
+            <!--计算器名字 -->
+            <p class="title">宣欣婷</p>
             <!--计算结果 -->
             <p class="result">
                 <span class="calculator_expression">{{calculatorObj.operationSentence}}</span>
                 <span class="calculator_result">{{calculatorObj.result}}</span>
             </p>
             <!--键盘布局 -->
-            <div class="line">
+            <!--<div class="line">
                 <span @click="operation('(', 'sumbol')">(</span>
                 <span @click="operation(')', 'sumbol')">)</span>
                 <span @click="operation('%', 'operation')">%</span>
                 <span @click="operation('AC', 'operation')">AC</span>
-            </div>
+            </div> -->
             <div class="line">
                 <span @click="operation(7, 'number')">7</span>
                 <span @click="operation(8, 'number')">8</span>
@@ -59,7 +61,7 @@
             <div class="line">
                 <span @click="operation(0, 'number')">0</span>
                 <span @click="operation('.', 'number')">.</span>
-                <span @click="operation('(=', 'result')">=</span>
+                <span @click="operation('=', 'result')">=</span>
                 <span @click="operation('+', 'operation')">+</span>
             </div>
         </div>
@@ -79,28 +81,48 @@
                     jiu: [1, 2, 3, 4, 5, 6, 7, 9],
                     calculatorObj: {
                         operationSentence: '',
-                        result: 0
-                    }
+                        result: 0,
+                        first: '',
+                        second: '',
+                        opera: '',
+                        flag: 'first'
+                    },
+                    operationSymbol: ['+', '-', '÷', '×']
                 },
                 methods: {
                     operation(value, symbol) {
-                        if (value == 'AC') {
-                            this.calculatorObj.operationSentence = '';
-                        } else if (value == '=') {
-
-                        } else {
-                            if (this.canInput(this.calculatorObj.operationSentence, value)){
-                                this.calculatorObj.operationSentence += value;
-                                console.log(this.calculatorObj.operationSentence);
+                        if (value == '=') {
+                            if (this.calculatorObj.opera == '+') {
+                                this.calculatorObj.result = parseFloat(this.calculatorObj.first) + parseFloat(this.calculatorObj.second);
+                            } else if (this.calculatorObj.opera == '-') {
+                                this.calculatorObj.result = parseFloat(this.calculatorObj.first) - parseFloat(this.calculatorObj.second);
+                            } else if (this.calculatorObj.opera == '÷') {
+                                this.calculatorObj.result = parseFloat(this.calculatorObj.first) / parseFloat(this.calculatorObj.second);
+                            } else if (this.calculatorObj.opera == '×') {
+                                this.calculatorObj.result = parseFloat(this.calculatorObj.first) * parseFloat(this.calculatorObj.second);
                             } else {
-                                alert('error');
+
                             }
+                            this.calculatorObj.first = '';
+                            this.calculatorObj.second = '';
+                            this.calculatorObj.operationSentence = '';
+                            this.calculatorObj.flag = 'first';
+                        } else if(this.operationSymbol.indexOf(value) != -1) {
+                            if (this.calculatorObj.first.length != 0) {
+                                if (this.calculatorObj.flag == 'second') {
+                                    alert('小朋友，你已经输入过计算操作');
+                                } else {
+                                    this.calculatorObj.operationSentence += value;
+                                    this.calculatorObj.opera = value;
+                                    this.calculatorObj.flag = 'second';
+                                }
+                            } else {
+                                alert('小朋友，你还没输入第一个操作数呢');
+                            }
+                        } else {
+                            this.calculatorObj.operationSentence += value;
+                            this.calculatorObj[this.calculatorObj.flag] += value;
                         }
-                    },
-                    canInput(symbol, sentence) {
-                        console.log(symbol);
-                        console.log(sentence);
-                        return true;
                     }
                 },
                 ready: function() {

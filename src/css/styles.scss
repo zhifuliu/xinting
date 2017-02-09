@@ -119,6 +119,9 @@ select::-webkit-select-placeholder {
             display: block;
             word-wrap: break-word;
             word-break: normal;
+            border-radius: 0.5rem;
+            padding: 0 0.2rem;
+
             span {
                 display: block;
                 text-align: right;
@@ -140,6 +143,7 @@ select::-webkit-select-placeholder {
                 width: 4rem;
                 text-align: center;
                 margin-right: 0.4rem;
+                border-radius: 0.3rem;
             }
             span:last-child {
                 margin-right: 0;

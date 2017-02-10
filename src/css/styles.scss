@@ -106,6 +106,7 @@ select::-webkit-select-placeholder {
         border-radius: 1rem;
         display: block;
         width: 20rem;
+        margin-top: 1rem;
 
         p.title {
             font-size: 1.5rem;
@@ -152,5 +153,12 @@ select::-webkit-select-placeholder {
         .line:last-child {
             margin-bottom: 0;
         }
+    }
+    .translation {
+        display: block;
+        min-height: 10rem;
+        border: 1px solid #c2c2c2;
+        border-radius: 1rem;
+        margin-top: 1rem;
     }
 }

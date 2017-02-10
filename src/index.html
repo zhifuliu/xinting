@@ -65,12 +65,30 @@
                 <span @click="operation('+', 'operation')">+</span>
             </div>
         </div>
+        <!--翻译 -->
+        <div class="translation">
+            <div class="left">
+                <select class="" name="">
+                    <option value="1">中文</option>
+                </select>
+                <input type="text" name="" value="">
+            </div>
+            <div class="right">
+                <select class="" name="">
+                    <option value="1">中文</option>
+                </select>
+                <p></p>
+            </div>
+            <button type="button" name="button" @click="translation">翻译</button>
+        </div>
     </section>
 
     <!-- build:js -->
     <script type="text/javascript" src="./bower_modules/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="./bower_modules/underscore/underscore.js"></script>
     <script type="text/javascript" src="./bower_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript" src="./bower_modules/js-md5/js/md5.min.js"></script>
+    <script type="text/javascript" src="./bower_modules/q/q.js"></script>
     <!-- endbuild -->
     <script type="text/javascript">
         $(function() {
@@ -89,9 +107,30 @@
                     },
                     operationSymbol: ['+', '-', '÷', '×'],
                     userName: '',
-                    success: false
+                    success: false,
+                    translateOption: {
+                        q: 'queryStr',
+                        from: 'auto',
+                        to: 'en',
+                        appid: '20170209000038798',
+                        salt: 0618,
+                        sign: '',
+                        miyao: 'xiaonvyou'
+                    }
                 },
                 methods: {
+                    translation() {
+                        var that = this;
+                        var translateUrl = 'http://api.fanyi.baidu.com/api/trans/vip/translate';
+                        console.log(that.translateOption);
+                        Q($.ajax({
+                            url: translateUrl,
+                            type: 'POST',
+                            contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+                            dataType: 'json',
+                            data: that.translateOption
+                        }))
+                    },
                     operation(value, symbol) {
                         if (value == '=') {
                             if (this.calculatorObj.opera == '+') {
@@ -154,6 +193,7 @@
                         })
                     }
                     this.success = true;
+                    this.translateOption.sign = md5(this.translateOption.appid + this.translateOption.q + this.translateOption.salt + this.translateOption.miyao);
                 },
                 watch: {}
             });

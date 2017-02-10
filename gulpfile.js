@@ -28,7 +28,7 @@ gulp.task('webserver', ['auto-sass'], function() {
             "host": "http://test.winbaoxian.com/"
         },
         "host": {
-            "port": 3000,
+            "port": 1314,
             "host": "127.0.0.1"
         }
     };

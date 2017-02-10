@@ -75,7 +75,7 @@ gulp.task('css', function() {
 });
 
 gulp.task('js', function() {
-    var jsList = ['./src/bower_modules/jquery/dist/jquery.js', './src/bower_modules/underscore/underscore.js', './src/bower_modules/vue/dist/vue.js', './src/bower_modules/moment/moment.js'];
+    var jsList = ['./src/bower_modules/jquery/dist/jquery.js', './src/bower_modules/underscore/underscore.js', './src/bower_modules/vue/dist/vue.js', './src/bower_modules/moment/moment.js', './src/bower_modules/js-md5/js/md5.min.js', './src/bower_modules/q/q.js'];
     return gulp.src(jsList)
         .pipe(uglify())
         .pipe(concat('group_management.js'))

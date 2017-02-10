@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <section id="app">
+    <section id="app" v-show="success">
         <!--九九乘法表 -->
         <div class="jiujiu">
             <div class="line" v-for="i in jiu">
@@ -27,7 +27,7 @@
         <!--计算器 -->
         <div class="calculator">
             <!--计算器名字 -->
-            <p class="title">宣欣婷</p>
+            <p class="title">{{userName}}</p>
             <!--计算结果 -->
             <p class="result">
                 <span class="calculator_expression">{{calculatorObj.operationSentence}}</span>
@@ -87,7 +87,9 @@
                         opera: '',
                         flag: 'first'
                     },
-                    operationSymbol: ['+', '-', '÷', '×']
+                    operationSymbol: ['+', '-', '÷', '×'],
+                    userName: '',
+                    success: false
                 },
                 methods: {
                     operation(value, symbol) {
@@ -107,7 +109,7 @@
                             this.calculatorObj.second = '';
                             this.calculatorObj.operationSentence = '';
                             this.calculatorObj.flag = 'first';
-                        } else if(this.operationSymbol.indexOf(value) != -1) {
+                        } else if (this.operationSymbol.indexOf(value) != -1) {
                             if (this.calculatorObj.first.length != 0) {
                                 if (this.calculatorObj.flag == 'second') {
                                     alert('小朋友，你已经输入过计算操作');
@@ -123,17 +125,37 @@
                             this.calculatorObj.operationSentence += value;
                             this.calculatorObj[this.calculatorObj.flag] += value;
                         }
+                    },
+                    setLocalStorageData: function(storageObj) {
+                        try {
+                            localStorage.setItem(storageObj.name, storageObj.data);
+                            return true;
+                        } catch (error) {
+                            console.log('set localStorage error, error message:' + JSON.stringify(error));
+                            return false;
+                        }
+                    },
+                    getLocalStorageData: function(itemName) {
+                        try {
+                            return localStorage.getItem(itemName);
+                        } catch (error) {
+                            console.log('get localStorage error, error message:' + JSON.stringify(error));
+                            return 'undefined';
+                        }
                     }
                 },
-                ready: function() {
-
-                },
                 created: function() {
-
+                    this.userName = this.getLocalStorageData('userName');
+                    if (this.userName == null || this.userName == undefined || this.userName == 'null' || this.userName == 'undefined' || this.userName == '') {
+                        this.userName = prompt('小朋友，请输入你的名字');
+                        this.setLocalStorageData({
+                            name: 'userName',
+                            data: this.userName
+                        })
+                    }
+                    this.success = true;
                 },
-                watch: {
-
-                }
+                watch: {}
             });
         });
     </script>

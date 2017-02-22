@@ -1,21 +1,4 @@
-# general
-*~
-*.log
-tmp
-dump
-**/.DS_Store
-.svn/
-.idea/
-.metadata/
-.project
-Thumbs.db
-*.iml
-#node
-**/node_modules/
-#bower
-**/bower_modules
-
-
-src/insurance-lib
-src/css/*.css
-dist
+.DS_Store
+node_modules/
+dist/
+npm-debug.log

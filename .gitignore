@@ -3,3 +3,5 @@ node_modules/
 dist/
 npm-debug.log
 src/bower_modules
+
+src/css/*.css

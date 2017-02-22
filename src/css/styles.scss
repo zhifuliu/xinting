@@ -19,7 +19,7 @@ html {
     width: 100%;
     overflow-x: hidden;
     min-height: 100%;
-    min-width: 480px;
+    // min-width: 480px;
 }
 body {
     font-family: 'Microsoft YaHei', '黑体', 'Tahoma', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -59,7 +59,7 @@ section {
     display: block;
 }
 section {
-    min-width: 480px;
+    // min-width: 480px;
     margin: 0 auto;
     width: 100%;
 }
@@ -164,6 +164,20 @@ select::-webkit-select-placeholder {
         border-radius: 1rem;
         margin-top: 1rem;
     }
+    .error {
+        p {
+            width: 100%;
+            text-align: center;
+            color: red;
+        }
+    }
+    .xinting {
+        p {
+            width: 100%;
+            text-align: center;
+            color: #FF6EC7;
+        }
+    }
     .menu {
         display: block;
         position: fixed;
@@ -177,7 +191,6 @@ select::-webkit-select-placeholder {
             width: 2rem;
             height: 2rem;
             border-radius: 50%;
-            background-color: red;
             color: #fff;
             text-align: center;
             font-size: 0.8rem;
@@ -185,6 +198,30 @@ select::-webkit-select-placeholder {
         }
         span.active {
             box-shadow: 0 2px 7px rgba(0, 0, 0, 0.75);
+        }
+        span:nth-child(1) {
+            background-color: rgb(255,0,0);
+        }
+        span:nth-child(2) {
+            background-color: rgb(255,128,0);
+        }
+        span:nth-child(3) {
+            background-color: rgb(255,255,0);
+            color: #FF6EC7;
+        }
+        span:nth-child(4) {
+            background-color: rgb(0,255,0);
+            color: #FF6EC7;
+        }
+        span:nth-child(5) {
+            background-color: rgb(0,255,255);
+            color: #FF6EC7;
+        }
+        span:nth-child(6) {
+            background-color: rgb(0,0,255);
+        }
+        span:nth-child(7) {
+            background-color: rgb(128,0,255);
         }
     }
 }

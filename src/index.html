@@ -19,13 +19,13 @@
 <body>
     <section id="app" v-show="success">
         <!--九九乘法表 -->
-        <div class="jiujiu">
+        <div class="jiujiu" v-show="currentMenu == 'shuxue'">
             <div class="line" v-for="i in jiu">
                 <span v-for="j in jiu" v-if="j <= i">{{i}}×{{j}}={{i * j}}</span>
             </div>
         </div>
         <!--计算器 -->
-        <div class="calculator">
+        <div class="calculator" v-show="currentMenu == 'shuxue'">
             <!--计算器名字 -->
             <p class="title">{{userName}}</p>
             <!--计算结果 -->
@@ -66,7 +66,7 @@
             </div>
         </div>
         <!--翻译 -->
-        <div class="translation">
+        <div class="translation" v-show="currentMenu == false">
             <div class="left">
                 <select class="" name="">
                     <option value="1">中文</option>
@@ -80,6 +80,17 @@
                 <p></p>
             </div>
             <button type="button" name="button" @click="translation">翻译</button>
+        </div>
+        <div class="error"  v-show="currentMenu != 'shuxue'">
+            <p>正在开发，很快就可以上线了</p>
+        </div>
+        <div class="menu">
+            <span v-bind:class="{'active': currentMenu == 'tangshi'}" @click="currentMenu = 'tangshi'">唐诗</span>
+            <span v-bind:class="{'active': currentMenu == 'songci'}" @click="currentMenu = 'songci'">宋词</span>
+            <span v-bind:class="{'active': currentMenu == 'shuxue'}" @click="currentMenu = 'shuxue'">数学</span>
+            <span v-bind:class="{'active': currentMenu == 'fangyi'}" @click="currentMenu = 'fangyi'">翻译</span>
+            <span v-bind:class="{'active': currentMenu == 'mingyan'}" @click="currentMenu = 'mingyan'">名言</span>
+            <span v-bind:class="{'active': currentMenu == 'jueju'}" @click="currentMenu = 'jueju'">绝句</span>
         </div>
     </section>
 
@@ -116,7 +127,8 @@
                         salt: 0618,
                         sign: '',
                         miyao: 'xiaonvyou'
-                    }
+                    },
+                    currentMenu: 'shuxue'
                 },
                 methods: {
                     translation() {
@@ -194,6 +206,11 @@
                     }
                     this.success = true;
                     this.translateOption.sign = md5(this.translateOption.appid + this.translateOption.q + this.translateOption.salt + this.translateOption.miyao);
+                    if (window.innerWidth <= 320) {
+                        $('html').css('fontSize', '14px');
+                    } else {
+                        $('html').css('fontSize', (document.body.offsetWidth * 30 / 750) + 'px');
+                    }
                 },
                 watch: {}
             });

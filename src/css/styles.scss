@@ -83,7 +83,7 @@ select::-webkit-select-placeholder {
     padding: 10% 0;
     .jiujiu {
         .line {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.2rem;
             span{
                 border: 1px solid #c2c2c2;
                 border-radius: 0.5rem;
@@ -91,6 +91,7 @@ select::-webkit-select-placeholder {
                 // padding: 0.2rem 1rem;
                 padding: 0.1rem;
                 display: inline-block;
+                font-size: 0.6rem;
             }
             span:last-child {
                 margin-right: 0;
@@ -102,23 +103,23 @@ select::-webkit-select-placeholder {
     }
     .calculator {
         text-align: center;
-        padding: 1rem 0;
+        padding: 0.5rem 0;
         border: 1px solid #c2c2c2;
         border-radius: 1rem;
         display: block;
-        width: 20rem;
+        width: 15rem;
         // margin-top: 1rem;
-        margin: 1rem calc((100% - 25rem) / 2);
+        margin: 1rem calc((100% - 18rem) / 2);
+        font-size: 0.8rem;
 
         p.title {
             font-size: 1.5rem;
         }
         p.result {
-            min-height: 4rem;
             border: 1px solid #c2c2c2;
             margin: 0.5rem 1rem;
             font-size: 2rem;
-            width: 17.8rem;
+            // width: 17.8rem;
             display: block;
             word-wrap: break-word;
             word-break: normal;
@@ -143,7 +144,7 @@ select::-webkit-select-placeholder {
                 background-color: #C9C9C9;
                 padding: 0.5rem 0;
                 display: inline-block;
-                width: 4rem;
+                width: 3rem;
                 text-align: center;
                 margin-right: 0.4rem;
                 border-radius: 0.3rem;
@@ -162,5 +163,28 @@ select::-webkit-select-placeholder {
         border: 1px solid #c2c2c2;
         border-radius: 1rem;
         margin-top: 1rem;
+    }
+    .menu {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        padding: 0.5rem 0;
+        background-color: transparent;
+        text-align: center;
+        width: 100%;
+        span {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            background-color: red;
+            color: #fff;
+            text-align: center;
+            font-size: 0.8rem;
+            padding-top: 0.5rem;
+        }
+        span.active {
+            box-shadow: 0 2px 7px rgba(0, 0, 0, 0.75);
+        }
     }
 }

@@ -80,15 +80,16 @@ select::-webkit-select-placeholder {
 
 #app {
     width: 100%;
-    padding: 10% 20%;
+    padding: 10% 0;
     .jiujiu {
         .line {
             margin-bottom: 0.5rem;
             span{
                 border: 1px solid #c2c2c2;
                 border-radius: 0.5rem;
-                margin-right: 0.5rem;
-                padding: 0.2rem 1rem;
+                margin-right: 0.2rem;
+                // padding: 0.2rem 1rem;
+                padding: 0.1rem;
                 display: inline-block;
             }
             span:last-child {
@@ -106,7 +107,8 @@ select::-webkit-select-placeholder {
         border-radius: 1rem;
         display: block;
         width: 20rem;
-        margin-top: 1rem;
+        // margin-top: 1rem;
+        margin: 1rem calc((100% - 25rem) / 2);
 
         p.title {
             font-size: 1.5rem;
